@@ -1,21 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2021-java面试整理</title>
+    <url>/2021/05/06/2021-java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="1-背景"><a href="#1-背景" class="headerlink" title="1 : 背景"></a>1 : 背景<br></h4><pre><code>           笔者2020年末在猎聘开始着手面试, 于2021年4月21日从猎聘离职,入职京东. 期间面试过 明略科技集团、蚂蚁金服、钉钉、美团(多部门)、华为、去哪儿、五八、京东、微博、老虎集团、贝壳、快手等
+           笔者拿到了 明略科技 26*15  华为18*15  五八 24*14  京东26*14 
+           早期蚂蚁金服非常可惜, 虽然当时很菜,但是机会很好,可惜挂在了四面上(下一面就是hr了o(╥﹏╥)o )
+           而微博也是薪资低 拒掉了.             
+           笔者工作四年,能力非常菜,但面试了好几个月也有一些资料和实战,  这里也只能是抛砖引玉 给一些朋友和同学一些面试心得和个人反馈。
+</code></pre>
+<h4 id="2-技术栈"><a href="#2-技术栈" class="headerlink" title="2 : 技术栈"></a>2 : 技术栈<br></h4><pre><code>   笔者只整理我接触到的和重要的点, 没整理的不代表不重要, 整理的也不会说答案 具体答案可以见资料区, 这里说明大概的技术栈和怎么问。也希望读者可以自己思考 不然面试官夺命连问很容易给自己问懵。
+
+   1.JAVA基础 :
+      集合、JUC和AQS 、 锁与线程、HASHMAP  线程池
+      
+      
+      集合 : 一般问常用数据结构,一些ArrayList LinkedList 等区别  比较基础 有的公司喜欢这么从基础问到深入, 所以集合相关就大概说下日常的即可。
+      
+      JUC : 并发相关的,比如问你常用 并发包什么类啊, AQS知道吗 ,讲讲原理和实现子类, 比如 CountDownLatch  CyclicBarrier Semaphore三兄弟  这个问的还挺多的 最好自己有了解相关原理 也有手动写过线程并发相关的经验。
+      
+      锁与线程 : 这个一般就是 LOCK synchronized 区别, 重入不可重入 锁等级 八股文背就完了
+      HashMap : 这个单拿出来是因为 面试必问, 都很喜欢问这个,包括数据类型 java8区别  解决什么问题 底层原理 , 我在去哪儿面试时 让我手写一个 hash方法 ( 也是醉了 )
+      线程池 :  常用参数 , 怎么初始化线程池, 了解原理吗 之类的
+      
+      
+   2.spring :
+      设计模式、IOC 、AOP、BEAN生命周期、 三级缓存循环依赖
+      
+      设计模式 :  单例  代理  装饰 模板 工厂 等等
+      IOC AOP : 老生八股
+      BEAN生命周期 :  八股背
+      三级缓存循环依赖 : 不看源码不太容易背,建议啃一啃
+      
+   3.redis :
+      数据类型、集群高可用、模型、三大场景(穿透击穿雪崩)、删除策略、持久化策略
+      数据类型 : 几大数据类型  常用哪些,给你一些场景你怎么用之类的
+      集群高可用 : 哨兵集群,槽slot相关
+      三大场景(穿透击穿雪崩) : 见资料 八股
+      删除策略 : 主动 被动 还有 LRU 惰性删除
+      持久化: AOF RDB  不解释
+      
+   4. mysql :
+    引擎区别 、锁、事务及问题及解决方式、索引、分库分表、mysql架构、优化慢sql
+    
+    引擎区别 : 无非 INNODB  MYISAM 事务 count保存 唯一索引 其他八股 
+    
+    锁: 表锁行锁 独享排他 乐观悲观 间隙锁
+    
+    事务及问题及解决方式 :  四大事务, 脏度 重复读 幻读 默认重复读 通过 model view + undo log 以及mvcc 间隙锁  这几个都整明白。
+    
+    索引: b+树 hash   b+树 b树区别  数据类型 怎么选, 怎么建立索引 优化索引  由左往右的排序 ,最左原则 联合索引 二级索引  聚簇索引  唯一索引 回表这些概念都整明白 
+    
+    分库分表: 你知道怎么分吗? 了解下mycat 分库分表的场景和带来的问题
+    
+    mysql架构 : 比如 为什么这么快 知道 cost 怎么算的吗 有玩过吗?  各种log (undolog  redo log  bin log) 底层的刷盘 内存写入等 结构了解下
+    
+    慢sql: 基本上是sql优化嘛, mysql自带慢sql配置检测, 然后开始说sql问题  怎么看sql 表关联, 子查询  驱动表, explain使用(具体字段都要知道 比如type有那些值 你关注那些指标)  排序file sort  内存排序  limit优化 等
+    
+    
+   5. 消息队列(MQ KAFKA)
+    MQ KAFKA区别 场景及问题解决 、架构及原理、消费积压、持久化 快
+    笔者掌握较少  见八股
+   6. JVM
+    常用参数 JVM内存结构及说明、  CMS执行过程、类加载及对象分配过程、对象相关、垃圾回收器、实战 OOM及FULLGC排查
+    笔者简历有jvm实战  所以这块准备的多一些
+    
+    常用参数 : 说出常用的那些, 比如 用什么垃圾回收器啊(这里更多是parnew +cms)
+    堆大小配置啊, eden s区 默认8:1:1 配置啊 , 大对象晋升配置  cms only  cms阈值 碎片化 压缩
+    元空间配置(笔者比较了解这一块 会和面试官深挖这里)  gc日志打印  class加载卸载 等等 说个差不多就可以
+    
+    JVM内存结构及说明 : 栈 堆  程序计数器 本地方法区  常量池等等  记住每个区域干啥用的 会有啥问题, 比如 堆 分配对象 还有对象标量替换到栈上, 分配对象又包含对象头 示例数据 对其填充 和class的引用  还有 64位压缩32位技术, 还有 垃圾回收器回收  ; 栈的话 有栈溢出  线程私有 栈本身的数据结构等等;
+    
+    CMS执行过程 : 初始标记 并发标记 重新标记 并发清理 最终回收  并发的都不stw  不是并发的初始标记和 重新标记是stw 的 如果能说出每个过程具体干啥了更佳, 比如关于 卡表 跨代引用 三色标记法 写屏障 CAS 原理等  
+    
+    类加载及对象分配过程 : 这里就是类加载过程 怎么加载的( 源码: findClass loadClass ) 怎么从磁盘拿走, 什么时候加载卸载 ; 对象分配过程(new关键字 先类加载 再去初始化对象 等等 八股)
+    对象结构(对象头 markword  gc标识 偏向锁 等等),所占字节数(有压缩技术 32G 等概念在这里  )
+    
+    垃圾回收器: 其他垃圾回收器 比如 串行俩兄弟, 并行俩兄弟  parnew  cms  g1 Shenandoah zgc 等  知道就行, 能说出来g1 和cms 区别 更佳
+    
+    实战: full gc 怎么办  OOM 怎么办
+    fullgc思路
+    1 :了解该项目参数 : 比如什么垃圾回收器 什么堆大小配置 等等
+    2 : 了解该项目流量模型: 比如一分钟多少对象进来 回收情况如何 观察对象区域图(公司有监控更佳, 没有就说 jgc jstack 等命令查看)
+    3 : 定位fullgc原因, 比如 过早晋升, 碎片化  回收阈值设置有问题  还有内存泄漏 
+    一个一个问题
+    
+    OOM : 分析OOM区域 (元空间也可能OOM) 然后定位解决问题
+    
+    7.网络 : 
+     一次请求、TCPIP  设计RPC  、BIO NIO AIO
+     
+     八股背起来
+     
+     其他: 缓存一致性  根据简历擅长角度及过往项目来问  
+     
+     
+   
+</code></pre>
+<h4 id="3-面试实战"><a href="#3-面试实战" class="headerlink" title="3 : 面试实战"></a>3 : 面试实战<br></h4><h4 id="4-资料相关"><a href="#4-资料相关" class="headerlink" title="4 : 资料相关"></a>4 : 资料相关<br></h4><p>由于时间原因 资料请加我微信私聊<br>完全免费请放心</p>
+<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5 : 总结"></a>5 : 总结<br></h4>]]></content>
+  </entry>
+  <entry>
     <title>云南旅游之行</title>
     <url>/2020/01/27/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E4%B9%8B%E8%A1%8C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>笔者在2020年1月18日 到 1月24日 通过报团方式前往云南旅游,此次旅游并非我本意主导,实则为了完成佳人对彩云之南的向往…. 除了出发和到达两日,笔者在云南游玩了五天 .  因为是第一次通过这种报团出行,除了风景秀色可餐之外, 也有一些其他的经历, 属以博客以记之.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>笔者在2020年1月18日 到 1月24日 通过报团方式前往云南旅游, 除了出发和到达两日,笔者在云南游玩了五天 .  因为是第一次通过这种报团出行,除了风景秀色可餐之外, 也有一些其他的经历, 属以博客以记之.</p>
 <br>
 
 <p>本文主要有 旅游概览 、 景点分块介绍 、避坑点及建议、 总结 四大块<br><br><br>关键字 : 云南 大理 丽江  丽江古城 泸沽湖 蝴蝶泉 玉龙雪山 洱海 崇圣寺三塔 少数民族 </p>
 <h4 id="旅游概览"><a href="#旅游概览" class="headerlink" title="旅游概览 :"></a>旅游概览 :</h4><p> DAY1 :&ensp;&ensp; 从郑州飞往丽江 晚上丽江住宿 <br><br><br> DAY2 :&ensp;&ensp; 拉市海湿地公园 茶马古道 玉龙雪山 白水河(蓝月谷) 束河古镇  丽水金沙表演 古城四方街<br><br><br> DAY3 - DAY4 :&ensp;&ensp; 泸沽湖景区 : 情人滩 草海走婚桥 摩梭走婚宴 摩梭篝火晚会 <br><br><br> DAY5 -DAY6 :&ensp;  &ensp;&ensp;大理 : 洱海二号邮轮 白族三道茶 南诏风情岛 蝴蝶泉 大理古城 洋人街 崇圣寺三塔 <br><br><br> DAY7 : &ensp;  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 前往机场返程郑州</p>
  <br>
+ 
+ #### 景区介绍 :
+ 
+  ###### 1: 丽江
+  
+  ![/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark](/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark '丽江概览')
+  &ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;丽江
+  
+  
+ &ensp;   &ensp;   &ensp;    丽江开始给我的感觉其实没什么感觉, 无非是山多海拔高,空气清新很容易让人感觉是厦门青岛的海边小镇。
+ ![/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark](/img/旅游/云南/拉市海湿地公园.jpg?x-oss-process=style/watermark '拉市海湿地公园')
+&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;拉市海湿地公园
+ 
+ <br><br>
+ &ensp;   &ensp;   &ensp;   本地人以纳西族为代表的少数民族占据多数,个子大多不高,皮肤黝黑,普通话十分不标准,一开始很难沟通。<br><br>
+  &ensp; &ensp; &ensp;我刚下机的时候,安排的司机把我往丽江镇繁华的地方拉的时候,真心觉得是像电影中被缅甸人(NO OFFENCE)蒙着眼睛拉到大山沟里卖掉一样...一路黑灯瞎火,车猛话不多(说的也听不懂) ,害的我一路都在左顾右盼 想要被害前留下点证据给警察..<br><br>
+  &ensp;   &ensp;   &ensp;   住宿还是要自己选择,这边别的不多,以旅游发展为生的产业导致酒店到处都有,我们团购的住宿酒店叫:喜来福酒店,美团评分2.7 外观看似豪华高大,但内在是在徒有其表.设备家具老化,味道不好我们也在第二天要求了更换<br><br>
+  
+ &ensp; &ensp; &ensp;  这边的饮食口味偏淡,像北方人可能很难习惯, 南方诸如广东应该比较喜欢。&ensp;&ensp; 我们第一天晚上赶紧找了一家"正宗"的云南过桥米线, 但很遗憾 味道非常差..清汤寡水 或者干脆味道就不是很好  之后我也选择了几家米线,得出结论: 不一定正宗的就是最符合你胃口的, 每个地方的饮食习惯不同<br>
+ 
+  &ensp; &ensp; &ensp; 而著名的约炮圣地也通过本地人的沟通得到了证实,只不过随着国家的黄赌毒控制力度加大,近些年乃至之后应该是不那么容易碰到了<br><br>
+  &ensp; &ensp; &ensp; 我个人对于这些古城、山山水水的美景确实是早已经过过瘾了,商业化的现在带来的古城千篇一律,玉龙雪山也不过是山上顶着积雪的一座普通山峰而已,但一场金沙表演却意外的让我觉得着实不错,从各个方面来介绍了本地的风土人情,日复一日的表演并未让演员放松演技,一个小时的表演把握得相当不错。(据说另一个show 千古情比这个更好看,可以推荐看一下)
+  
+   ![/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark](/img/旅游/云南/金沙表演1.jpg?x-oss-process=style/watermark '金沙表演')
+   &ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;少数民族金沙表演
+   <br>
+    ![/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark](/img/旅游/云南/金沙表演2.jpg?x-oss-process=style/watermark '金沙表演')
+  <br><br><br><br>
+  
+  
 
-<h4 id="景区介绍"><a href="#景区介绍" class="headerlink" title="景区介绍 :"></a>景区介绍 :</h4><h6 id="1-丽江"><a href="#1-丽江" class="headerlink" title="1: 丽江"></a>1: 丽江</h6><p>  <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E4%B8%BD%E6%B1%9F%E6%A6%82%E8%A7%88.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title="丽江概览"><br>  &ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;丽江</p>
-<p> &ensp;   &ensp;   &ensp;    丽江开始给我的感觉其实没什么感觉, 无非是山多海拔高,空气清新很容易让人感觉是厦门青岛的海边小镇。<br> <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E6%8B%89%E5%B8%82%E6%B5%B7%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title="拉市海湿地公园"><br>&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;拉市海湿地公园</p>
-<p> <br><br><br> &ensp;   &ensp;   &ensp;   本地人以纳西族为代表的少数民族占据多数,个子大多不高,皮肤黝黑,普通话十分不标准,一开始很难沟通。<br><br><br>  &ensp; &ensp; &ensp;我们刚下机的时候,安排的司机把我们往丽江镇繁华的地方拉的时候,真心觉得是像电影中被缅甸人(NO OFFENCE)蒙着眼睛拉到大山沟里卖掉一样…一路黑灯瞎火,车猛话不多(说的也听不懂) ,害的我一路都在左顾右盼 想要被害前留下点证据给警察..<br><br><br>  &ensp;   &ensp;   &ensp;   住宿还是要自己选择,这边别的不多,以旅游发展为生的产业导致酒店到处都有,我们团购的住宿酒店叫:喜来福酒店,美团评分2.7 外观看似豪华高大,但内在是在徒有其表.设备家具老化,味道不好我们也在第二天要求了更换<br><br></p>
-<p> &ensp; &ensp; &ensp;  这边的饮食口味偏淡,像北方人可能很难习惯, 南方诸如广东应该比较喜欢。&ensp;&ensp; 我们第一天晚上赶紧找了一家”正宗”的云南过桥米线, 但很遗憾 味道非常差..清汤寡水 或者干脆味道就不是很好  之后我们也选择了几家米线,得出结论: 不一定正宗的就是最符合你胃口的, 每个地方的饮食习惯不同<br></p>
-<p>  &ensp; &ensp; &ensp; 而著名的约炮圣地也通过本地人的沟通得到了证实,只不过随着国家的黄赌毒控制力度加大,近些年乃至之后应该是不那么容易碰到了<br><br><br>  &ensp; &ensp; &ensp; 我个人对于这些古城、山山水水的美景确实是早已经过过瘾了,商业化的现在带来的古城千篇一律,玉龙雪山也不过是山上顶着积雪的一座普通山峰而已,但一场金沙表演却意外的让我觉得着实不错,从各个方面来介绍了本地的风土人情,日复一日的表演并未让演员放松演技,一个小时的表演把握得相当不错。(据说另一个show 千古情比这个更好看,可以推荐看一下)</p>
-<p>   <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E9%87%91%E6%B2%99%E8%A1%A8%E6%BC%941.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title="金沙表演"><br>   &ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;&ensp;   &ensp;   &ensp;少数民族金沙表演<br>   <br><br>    <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E9%87%91%E6%B2%99%E8%A1%A8%E6%BC%942.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title="金沙表演"><br>  <br><br><br><br></p>
 <h6 id="2-泸沽湖"><a href="#2-泸沽湖" class="headerlink" title="2: 泸沽湖"></a>2: 泸沽湖</h6><p>  &ensp;   &ensp;   &ensp;&ensp;   泸沽湖  一个去了就上瘾的地方, 一个去了还想去的地方(来自导游阿杰的原话)<br> </p>
 <p>  <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E6%B3%B8%E6%B2%BD%E6%B9%962.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title="泸沽湖"><br> <br> </p>
 <p>  风景确实很美, 但实话实说, 这是一个不值得推荐去, 个人也再也不会去的地方 <br><br><br>  原因:&ensp;   1:&ensp;道路差  &ensp;&ensp; 云南多山,道路崎岖多弯,出行十分不便 从丽江古城前往泸沽湖来回需要大半天(最快) 早上7点就出发,下午两点才到 一路的蜿蜒曲折的山路让不会晕车的人都带着困倦和疲惫以及不佳的状态一路前行 如果是个人开车的话更是疲惫不堪<br></p>
@@ -25,9 +149,8 @@
 <p>  &ensp;  &ensp;  &ensp;   其实饮食和住宿因人而异,道路崎岖也可以放慢脚步前行,我提供我此行的真实感受,  真正去到了就不像你在抖音看的那么美好(仅以此句献给那些在网络上追求乌托邦式的小美好,不顾客观实际的幻想柏拉图式空中楼阁)<br>     <img src="/img/%E6%97%85%E6%B8%B8/%E4%BA%91%E5%8D%97/%E6%B3%B8%E6%B2%BD%E6%B9%96%E4%B8%80%E6%9D%9F%E9%98%B3%E5%85%89.jpg?x-oss-process=style/watermark" alt="/img/旅游/云南/丽江概览.jpg?x-oss-process=style/watermark" title=" 泸沽湖一束阳光"><br> <br>  </p>
 <p>   &ensp;  &ensp;  &ensp;  在泸沽湖这里必然接触到摩梭人,你会了解到泸沽湖的特色、当地民族的饮食、文化、习俗, 介绍走婚模式,一些走婚桥或者是其他特色 个人以为 除了对这些真的有了解 或者想要去了解的人来说, 会有一定的感受, 对于一个根本不想了解或者还挣扎在物理感受,没有上升到精神感悟的人来说(比如俗人我) 确实是内心毫无波动 ,不如逗逗鸽子 <br><br><br>   <video src='/video/泸沽湖上.mp4' type='video/mp4' controls='controls'  width='100%' ><br></video></p>
 <h6 id="3-大理"><a href="#3-大理" class="headerlink" title="3: 大理"></a>3: 大理</h6> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=430 height=86 src="//music.163.com/outchain/player?type=2&id=29771418&auto=0&height=66"></iframe>
-
-<p>   未完待续……</p>
-]]></content>
+  
+   未完待续......]]></content>
   </entry>
   <entry>
     <title>2020的这场瘟疫</title>
@@ -36,21 +159,34 @@
 <p><img src="/img/%E6%8A%96%E9%9F%B3%E7%96%AB%E6%83%85.jpg?x-oss-process=style/watermark" alt="/source/img/抖音疫情.jpg?x-oss-process=style/watermark" title="实时疫情"><br><br><br><br><br>  笔者94年出生, 在03时 经历过当时的非典, 笔者对当时的大环境和社会的反应已经记不太清楚了, 但是脑海里唯一的印象就是父母偷偷地把我塞到大巴里 ,车外是一种非常压抑黑暗的面貌.. 我一个9岁的孩子一个人乘坐这辆大巴驶向疫情还没有很严重的老家….<br>  <br><br>  当时的非典爆发在一个医疗条件差、信息不发达、人文素质低、世界环境复杂的一个场景下,人们无处获取最新信息,医生也对这种传染病无从下手,政府隐瞒不报.  种种因素导致了非常惨烈的结果…  感染近万人, 死亡数百人 而结束….<br>  <br><br> 时隔不到20年, 新的病毒卷土而来, 这次的新型冠状病毒和非典的起因基本是一致的.  非典的起因是果子狸染上了云南蝙蝠携带的病毒, 而果子狸因为某些人的野味爱好进入了餐桌   这次的新型冠状病毒也是因为野味从而爆发,具体的何种野味 官方暂未发布通告. <br></p>
 <p> 好巧不巧, 正值所有华夏儿女最重要的春节,亿万中国人在这个时刻会通过各种交通出行,却爆发了这么严重的疫情.. </p>
  <br>
-
-<p> 武汉封城、湖北多数城市封城、河南所有入口封锁 、多省市启动一级重大突发公共卫生事件响应… 整个国家陷入了一个前所未有的阴影中. <br> </p>
-<p> 笔者先在1.25号左右在云南通过互联网得知消息, 开始还和大多人一样没有多么的在意这次事件, 同行的还有两个从武汉来旅游的女士, 但随后短短几天 问题越来越严重 .. 笔者在云南的丽江、大理等多地药房已经无法购买到口罩. 旅途中的睡眠、饮食、疲乏 甚至让我也产生了嗓子痛 浑身无力 等和疫情一致的症状… 好在随后的休息后 又缓了过来…<br> <br><br> 在疫情早期, 2019年12月底, 有武汉8位人士反应过这次疫情 , 但是很遗憾, 被具特色的政府以造谣罪抓捕,这种隐瞒不报,不以人民服务为本的暴力 屁股行为 无疑让武汉政府压力倍增…<br> <img src="/img/%E7%96%AB%E6%83%85%E9%80%A0%E8%B0%A3%E8%80%85%E5%BE%AE%E5%8D%9A.jpg?x-oss-process=style/watermark" alt="/img/疫情造谣者微博.jpg?x-oss-process=style/watermark" title="实时疫情"></p>
-<p> <br><br></p>
-<p> 而每每发生这样的全国重大事故, 我华夏儿女总是有先行者.. 无私奉献, 大爱无疆  这种团结和凝聚力 放眼全世界都无法找到第二个.. 政府彻夜不眠 、当初非典之大侠 钟南山院士坐镇、数百上千全国各地医护者逆行奔向前线、一周内火神山 雷神山医院拔地而起 、东北老铁百吨白菜 、武汉宾馆免费医护者居住, 数倍工资召回工人24小时制作口罩的工厂、纷纷捐款的各大企业、海外同胞当地购买物资援助武汉、互联网上的 #武汉加油# 、 河南人硬核宣传疫情等等…  在政府强有力的政策执行下, 民间的亿万同胞自发的这种行为, 作为一名中国人 确实深深感受到了自豪和骄傲. 试问对于14亿这样的同胞,有什么灾害,有什么危险能使我们倒下? 任你风起云涌,我自岿然不动 !!!!!! <br></p>
-<p> 但从另一个角度来说,这次疫情又一次的体现出很多我们欠缺的点, 小到一个公司的项目在完成后会根据项目情况进行复盘, 相信这次疫情过后, 会有很多需要复盘的点.. 诸如 : 以人为本的理念如何贯彻? 特殊情况下的资源调度如何最大化? (每天武汉都在告急! 物资紧缺) 瞒报不报地方不作为如何处理和预防? 野味及市场的规范问题? 等等…<br> <br></p>
-<p> 笔者在1.18号去往云南 年三十返程郑州, 接着驱车回到老家固始县 .. 一个人过了一个不一样的大年三十(父母弟弟姥姥均在三亚)  第二天又急忙驱车返回郑州,购买晚上高铁紧急回到北京  . 原本还没有计划回北京.. 但是情况越来越严重 , 笔者在返回的路上. 北京发布所有省运交通大巴停运.. 笔者刚返回北京 家乡的封锁力度又进一步加大,恐怕晚一步 可能就回不来了..<br> <br><br> 笔者在北京的第二天(也就是1.26号) 去往超市购买了一些速食品和水资源 ,人人都戴口罩不说, 超市里也随处可见 购买一车饮用水  一车速冻饺子的人 .. 整个城市都在一种紧张的氛围下… 而就在1.26的下午, 笔者居住的所在地派出所就给笔者打了一个电话, 详实的咨询我是否去过武汉,是否有发烧等不良症状… (不得不感慨警察信息之全面,速度之快) 警察耐心的告知在家里不要多走动,注意自身情况变化, 笔者也答谢了对方 在互助了一声新年快乐后 撂下了电话…( 此时大年初二的新年背景就显得微不足道很多…) <br></p>
-<p>  愿天佑中华, 天佑武汉!!  早日摆脱这种特殊时刻… 也希望华夏儿女自强不息 加油!!!</p>
-]]></content>
+ 
+ 武汉封城、湖北多数城市封城、河南所有入口封锁 、多省市启动一级重大突发公共卫生事件响应... 整个国家陷入了一个前所未有的阴影中. <br> 
+ 
+ 笔者先在1.25号左右在云南通过互联网得知消息, 开始还和大多人一样没有多么的在意这次事件, 同行的还有两个从武汉来旅游的女士, 但随后短短几天 问题越来越严重 .. 笔者在云南的丽江、大理等多地药房已经无法购买到口罩. 旅途中的睡眠、饮食、疲乏 甚至让我也产生了嗓子痛 浑身无力 等和疫情一致的症状... 好在随后的休息后 又缓了过来...
+ <br>
+ 在疫情早期, 2019年12月底, 有武汉8位人士反应过这次疫情 , 但是很遗憾, 被具特色的政府以造谣罪抓捕,这种隐瞒不报,不以人民服务为本的暴力 屁股行为 无疑让武汉政府压力倍增... 
+ ![/img/疫情造谣者微博.jpg?x-oss-process=style/watermark](/img/疫情造谣者微博.jpg?x-oss-process=style/watermark '实时疫情')
+ 
+ <br><br>
+ 
+ 而每每发生这样的全国重大事故, 我华夏儿女总是有先行者.. 无私奉献, 大爱无疆  这种团结和凝聚力 放眼全世界都无法找到第二个.. 政府彻夜不眠 、当初非典之大侠 钟南山院士坐镇、数百上千全国各地医护者逆行奔向前线、一周内火神山 雷神山医院拔地而起 、东北老铁百吨白菜 、武汉宾馆免费医护者居住, 数倍工资召回工人24小时制作口罩的工厂、纷纷捐款的各大企业、海外同胞当地购买物资援助武汉、互联网上的 #武汉加油# 、 河南人硬核宣传疫情等等...  在政府强有力的政策执行下, 民间的亿万同胞自发的这种行为, 作为一名中国人 确实深深感受到了自豪和骄傲. 试问对于14亿这样的同胞,有什么灾害,有什么危险能使我们倒下? 任你风起云涌,我自岿然不动 !!!!!! <br>
+ 
+ 但从另一个角度来说,这次疫情又一次的体现出很多我们欠缺的点, 小到一个公司的项目在完成后会根据项目情况进行复盘, 相信这次疫情过后, 会有很多需要复盘的点.. 诸如 : 以人为本的理念如何贯彻? 特殊情况下的资源调度如何最大化? (每天武汉都在告急! 物资紧缺) 瞒报不报地方不作为如何处理和预防? 野味及市场的规范问题? 等等...
+ <br>
+ 
+ 笔者在1.18号去往云南 年三十返程郑州, 接着驱车回到老家固始县 .. 一个人过了一个不一样的大年三十(父母弟弟姥姥均在三亚)  第二天又急忙驱车返回郑州,购买晚上高铁紧急回到北京  . 原本还没有计划回北京.. 但是情况越来越严重 , 笔者在返回的路上. 北京发布所有省运交通大巴停运.. 笔者刚返回北京 家乡的封锁力度又进一步加大,恐怕晚一步 可能就回不来了.. 
+ <br>
+ 笔者在北京的第二天(也就是1.26号) 去往超市购买了一些速食品和水资源 ,人人都戴口罩不说, 超市里也随处可见 购买一车饮用水  一车速冻饺子的人 .. 整个城市都在一种紧张的氛围下... 而就在1.26的下午, 笔者居住的所在地派出所就给笔者打了一个电话, 详实的咨询我是否去过武汉,是否有发烧等不良症状... (不得不感慨警察信息之全面,速度之快) 警察耐心的告知在家里不要多走动,注意自身情况变化, 笔者也答谢了对方 在互助了一声新年快乐后 撂下了电话...( 此时大年初二的新年背景就显得微不足道很多...) <br>
+ 
+  愿天佑中华, 天佑武汉!!  早日摆脱这种特殊时刻... 也希望华夏儿女自强不息 加油!!!]]></content>
   </entry>
   <entry>
     <title>沮丧的时候</title>
     <url>/2020/01/15/%E6%B2%AE%E4%B8%A7%E7%9A%84%E5%BF%83%E6%83%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>  <strong>我猜你小的时候的梦想都不是成为现在这样的人吧….</strong><br><br>  <strong>那时候, 你在纠结上清华还是上北大</strong><br><br>  <strong>那时候, 你孜孜不倦的玩着那些单纯的游戏</strong><br><br>  *<em>那时候, 你说你想成为科学家,想成为老师,想成为医生,想成为…. *</em> <br></p>
-<pre><code>当你在深夜的时候, 有没有拉开窗户,静静地点上一根香烟,倚在满是灰尘的纱窗台上,望一眼仍然是一片繁华的都市? </code></pre><h4 id="你有没有想过你到底要做什么"><a href="#你有没有想过你到底要做什么" class="headerlink" title="你有没有想过你到底要做什么?"></a>你有没有想过你到底要做什么?</h4><hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>  <strong>我猜你小的时候的梦想都不是成为现在这样的人吧….</strong><br><br>  <strong>那时候, 你在纠结上清华还是上北大</strong><br><br>  <strong>那时候, 你孜孜不倦的玩着那些单纯的游戏</strong><br><br>  **那时候, 你说你想成为科学家,想成为老师,想成为医生,想成为…. ** <br></p>
+<pre><code>当你在深夜的时候, 有没有拉开窗户,静静地点上一根香烟,倚在满是灰尘的纱窗台上,望一眼仍然是一片繁华的都市? 
+</code></pre>
+<h4 id="你有没有想过你到底要做什么"><a href="#你有没有想过你到底要做什么" class="headerlink" title="你有没有想过你到底要做什么?"></a>你有没有想过你到底要做什么?</h4><hr>
 <p>  <img src="https://images.unsplash.com/photo-1576801488695-2e4d7a14b8b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" alt="blockchain"></p>
 <hr>
 <p>  是夜 子时  北京的温度零下, 你甚至可以安静地一个人听听这个城市的心跳..<br><br>  这是一个有2000多万人一起为之追逐的地方. 这里遍地资本家,数不清的韭菜一茬接着一茬.<br></p>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="苟且的理想一隅 随浮世杂谈" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    2021-java面试整理 |  Hewieの栈
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/icon.png" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Hewieの栈" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="draft-2021-java面试整理" class="article article-type-draft" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  2021-java面试整理
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/05/06/2021-java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" class="article-date">
+  <time datetime="2021-05-06T12:59:40.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.8k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h4 id="1-背景"><a href="#1-背景" class="headerlink" title="1 : 背景"></a>1 : 背景<br></h4><pre><code>           笔者2020年末在猎聘开始着手面试, 于2021年4月21日从猎聘离职,入职京东. 期间面试过 明略科技集团、蚂蚁金服、钉钉、美团(多部门)、华为、去哪儿、五八、京东、微博、老虎集团、贝壳、快手等
+           笔者拿到了 明略科技 26*15  华为18*15  五八 24*14  京东26*14 
+           早期蚂蚁金服非常可惜, 虽然当时很菜,但是机会很好,可惜挂在了四面上(下一面就是hr了o(╥﹏╥)o )
+           而微博也是薪资低 拒掉了.             
+           笔者工作四年,能力非常菜,但面试了好几个月也有一些资料和实战,  这里也只能是抛砖引玉 给一些朋友和同学一些面试心得和个人反馈。
+</code></pre>
+<h4 id="2-技术栈"><a href="#2-技术栈" class="headerlink" title="2 : 技术栈"></a>2 : 技术栈<br></h4><pre><code>   笔者只整理我接触到的和重要的点, 没整理的不代表不重要, 整理的也不会说答案 具体答案可以见资料区, 这里说明大概的技术栈和怎么问。也希望读者可以自己思考 不然面试官夺命连问很容易给自己问懵。
+
+   1.JAVA基础 :
+      集合、JUC和AQS 、 锁与线程、HASHMAP  线程池
+      
+      
+      集合 : 一般问常用数据结构,一些ArrayList LinkedList 等区别  比较基础 有的公司喜欢这么从基础问到深入, 所以集合相关就大概说下日常的即可。
+      
+      JUC : 并发相关的,比如问你常用 并发包什么类啊, AQS知道吗 ,讲讲原理和实现子类, 比如 CountDownLatch  CyclicBarrier Semaphore三兄弟  这个问的还挺多的 最好自己有了解相关原理 也有手动写过线程并发相关的经验。
+      
+      锁与线程 : 这个一般就是 LOCK synchronized 区别, 重入不可重入 锁等级 八股文背就完了
+      HashMap : 这个单拿出来是因为 面试必问, 都很喜欢问这个,包括数据类型 java8区别  解决什么问题 底层原理 , 我在去哪儿面试时 让我手写一个 hash方法 ( 也是醉了 )
+      线程池 :  常用参数 , 怎么初始化线程池, 了解原理吗 之类的
+      
+      
+   2.spring :
+      设计模式、IOC 、AOP、BEAN生命周期、 三级缓存循环依赖
+      
+      设计模式 :  单例  代理  装饰 模板 工厂 等等
+      IOC AOP : 老生八股
+      BEAN生命周期 :  八股背
+      三级缓存循环依赖 : 不看源码不太容易背,建议啃一啃
+      
+   3.redis :
+      数据类型、集群高可用、模型、三大场景(穿透击穿雪崩)、删除策略、持久化策略
+      数据类型 : 几大数据类型  常用哪些,给你一些场景你怎么用之类的
+      集群高可用 : 哨兵集群,槽slot相关
+      三大场景(穿透击穿雪崩) : 见资料 八股
+      删除策略 : 主动 被动 还有 LRU 惰性删除
+      持久化: AOF RDB  不解释
+      
+   4. mysql :
+    引擎区别 、锁、事务及问题及解决方式、索引、分库分表、mysql架构、优化慢sql
+    
+    引擎区别 : 无非 INNODB  MYISAM 事务 count保存 唯一索引 其他八股 
+    
+    锁: 表锁行锁 独享排他 乐观悲观 间隙锁
+    
+    事务及问题及解决方式 :  四大事务, 脏度 重复读 幻读 默认重复读 通过 model view + undo log 以及mvcc 间隙锁  这几个都整明白。
+    
+    索引: b+树 hash   b+树 b树区别  数据类型 怎么选, 怎么建立索引 优化索引  由左往右的排序 ,最左原则 联合索引 二级索引  聚簇索引  唯一索引 回表这些概念都整明白 
+    
+    分库分表: 你知道怎么分吗? 了解下mycat 分库分表的场景和带来的问题
+    
+    mysql架构 : 比如 为什么这么快 知道 cost 怎么算的吗 有玩过吗?  各种log (undolog  redo log  bin log) 底层的刷盘 内存写入等 结构了解下
+    
+    慢sql: 基本上是sql优化嘛, mysql自带慢sql配置检测, 然后开始说sql问题  怎么看sql 表关联, 子查询  驱动表, explain使用(具体字段都要知道 比如type有那些值 你关注那些指标)  排序file sort  内存排序  limit优化 等
+    
+    
+   5. 消息队列(MQ KAFKA)
+    MQ KAFKA区别 场景及问题解决 、架构及原理、消费积压、持久化 快
+    笔者掌握较少  见八股
+   6. JVM
+    常用参数 JVM内存结构及说明、  CMS执行过程、类加载及对象分配过程、对象相关、垃圾回收器、实战 OOM及FULLGC排查
+    笔者简历有jvm实战  所以这块准备的多一些
+    
+    常用参数 : 说出常用的那些, 比如 用什么垃圾回收器啊(这里更多是parnew +cms)
+    堆大小配置啊, eden s区 默认8:1:1 配置啊 , 大对象晋升配置  cms only  cms阈值 碎片化 压缩
+    元空间配置(笔者比较了解这一块 会和面试官深挖这里)  gc日志打印  class加载卸载 等等 说个差不多就可以
+    
+    JVM内存结构及说明 : 栈 堆  程序计数器 本地方法区  常量池等等  记住每个区域干啥用的 会有啥问题, 比如 堆 分配对象 还有对象标量替换到栈上, 分配对象又包含对象头 示例数据 对其填充 和class的引用  还有 64位压缩32位技术, 还有 垃圾回收器回收  ; 栈的话 有栈溢出  线程私有 栈本身的数据结构等等;
+    
+    CMS执行过程 : 初始标记 并发标记 重新标记 并发清理 最终回收  并发的都不stw  不是并发的初始标记和 重新标记是stw 的 如果能说出每个过程具体干啥了更佳, 比如关于 卡表 跨代引用 三色标记法 写屏障 CAS 原理等  
+    
+    类加载及对象分配过程 : 这里就是类加载过程 怎么加载的( 源码: findClass loadClass ) 怎么从磁盘拿走, 什么时候加载卸载 ; 对象分配过程(new关键字 先类加载 再去初始化对象 等等 八股)
+    对象结构(对象头 markword  gc标识 偏向锁 等等),所占字节数(有压缩技术 32G 等概念在这里  )
+    
+    垃圾回收器: 其他垃圾回收器 比如 串行俩兄弟, 并行俩兄弟  parnew  cms  g1 Shenandoah zgc 等  知道就行, 能说出来g1 和cms 区别 更佳
+    
+    实战: full gc 怎么办  OOM 怎么办
+    fullgc思路
+    1 :了解该项目参数 : 比如什么垃圾回收器 什么堆大小配置 等等
+    2 : 了解该项目流量模型: 比如一分钟多少对象进来 回收情况如何 观察对象区域图(公司有监控更佳, 没有就说 jgc jstack 等命令查看)
+    3 : 定位fullgc原因, 比如 过早晋升, 碎片化  回收阈值设置有问题  还有内存泄漏 
+    一个一个问题
+    
+    OOM : 分析OOM区域 (元空间也可能OOM) 然后定位解决问题
+    
+    7.网络 : 
+     一次请求、TCPIP  设计RPC  、BIO NIO AIO
+     
+     八股背起来
+     
+     其他: 缓存一致性  根据简历擅长角度及过往项目来问  
+     
+     
+   
+</code></pre>
+<h4 id="3-面试实战"><a href="#3-面试实战" class="headerlink" title="3 : 面试实战"></a>3 : 面试实战<br></h4><h4 id="4-资料相关"><a href="#4-资料相关" class="headerlink" title="4 : 资料相关"></a>4 : 资料相关<br></h4><p>由于时间原因 资料请加我微信私聊<br>完全免费请放心</p>
+<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5 : 总结"></a>5 : 总结<br></h4>
+      
+      <!-- 打赏 -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.mhxxx.cn/2021/05/06/2021-java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" data-id="ckoczqde60006w4uk6e2oemp2"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/27/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E4%B9%8B%E8%A1%8C/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">云南旅游之行</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: 'wmImVmuMQ9ogfHVDaQI2vTSi-gzGzoHsz',
+        app_key: 'T5EvWgqIoSVU7N2RXhsMV7kC',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '期待君的评论~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-2021
+        Hewie-梅浩   京ICP备17013690号
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src=''></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo_side.jpg" alt="Hewieの栈"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/travel">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>一杯咖啡,与君共享~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+			onClick: (e) => {
+      	document.getElementById(e.target.innerText).scrollIntoView()
+      	return false;
+    	}
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+
+  </div>
+</body>
+
+</html>
