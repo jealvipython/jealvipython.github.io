@@ -105,108 +105,40 @@
       
 
       
-      <h4 id="1-背景"><a href="#1-背景" class="headerlink" title="1 : 背景"></a>1 : 背景<br></h4><pre><code>           笔者2020年末在猎聘开始着手面试, 于2021年4月21日从猎聘离职,入职京东. 期间面试过 明略科技集团、蚂蚁金服、钉钉、美团(多部门)、华为、去哪儿、五八、京东、微博、老虎集团、贝壳、快手等
-           笔者拿到了 明略科技 26*15  华为18*15  五八 24*14  京东26*14 
-           早期蚂蚁金服非常可惜, 虽然当时很菜,但是机会很好,可惜挂在了四面上(下一面就是hr了o(╥﹏╥)o )
-           而微博也是薪资低 拒掉了.             
-           笔者工作四年,能力非常菜,但面试了好几个月也有一些资料和实战,  这里也只能是抛砖引玉 给一些朋友和同学一些面试心得和个人反馈。
-</code></pre>
-<h4 id="2-技术栈"><a href="#2-技术栈" class="headerlink" title="2 : 技术栈"></a>2 : 技术栈<br></h4><pre><code>   笔者只整理我接触到的和重要的点, 没整理的不代表不重要, 整理的也不会说答案 具体答案可以见资料区, 这里说明大概的技术栈和怎么问。也希望读者可以自己思考 不然面试官夺命连问很容易给自己问懵。
+      <h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1 : 背景"></a>1 : 背景<br></h3><p>笔者2020年末在猎聘开始着手面试, 于2021年4月21日从猎聘离职,入职京东. 期间面试过 明略科技集团、蚂蚁金服、钉钉、美团(多部门)、华为、去哪儿、五八、京东、微博、老虎集团、贝壳、快手等<br>               笔者拿到了 明略科技 26<em>15  华为18</em>15  五八 24<em>14  京东26</em>14<br>               早期蚂蚁金服非常可惜, 虽然当时很菜,但是机会很好,可惜挂在了四面上(下一面就是hr了o(╥﹏╥)o )<br>               而微博也是薪资低 拒掉了.<br>               笔者工作四年,能力非常菜,但面试了好几个月也有一些资料和实战,  这里也只能是抛砖引玉 给一些朋友和同学一些面试心得和个人反馈。</p>
+<h3 id="2-技术栈"><a href="#2-技术栈" class="headerlink" title="2 : 技术栈"></a>2 : 技术栈<br></h3><p>笔者只整理我接触到的和重要的点, 没整理的不代表不重要, 整理的也不会说答案 具体答案可以见资料区, 这里说明大概的技术栈和怎么问。也希望读者可以自己思考 不然面试官夺命连问很容易给自己问懵。<br><br></p>
+<h5 id="1-JAVA基础"><a href="#1-JAVA基础" class="headerlink" title="1.JAVA基础 :"></a>1.JAVA基础 :<br></h5><p> 集合 : 一般问常用数据结构,一些ArrayList LinkedList 等区别  比较基础 有的公司喜欢这么从基础问到深入, 所以集合相关就大概说下日常的即可。<br>      <br><br> JUC : 并发相关的,比如问你常用 并发包什么类啊, AQS知道吗 ,讲讲原理和实现子类, 比如 CountDownLatch  CyclicBarrier Semaphore三兄弟  这个问的还挺多的 最好自己有了解相关原理 也有手动写过线程并发相关的经验。<br></p>
+<p> 锁与线程 : 这个一般就是 LOCK synchronized 区别, 重入不可重入 锁等级 八股文背就完了<br>    <br><br>HashMap : 这个单拿出来是因为 面试必问, 都很喜欢问这个,包括数据类型 java8区别  解决什么问题 底层原理 , 我在去哪儿面试时 让我手写一个 hash方法 ( 也是醉了 )<br>     <br><br>线程池 :  常用参数 , 怎么初始化线程池, 了解原理吗 之类的</p>
+<h5 id="2-spring"><a href="#2-spring" class="headerlink" title="2.spring :"></a>2.spring :</h5><p>设计模式 :  单例  代理  装饰 模板 工厂 等等<br><br>IOC AOP : 老生八股<br><br>BEAN生命周期 :  八股背<br><br>三级缓存循环依赖 : 不看源码不太容易背,建议啃一啃<br></p>
+<h5 id="3-redis"><a href="#3-redis" class="headerlink" title="3.redis :"></a>3.redis :<br></h5><p>数据类型、集群高可用、模型、三大场景(穿透击穿雪崩)、删除策略、持久化策略<br><br>          数据类型 : 几大数据类型  常用哪些,给你一些场景你怎么用之类的<br><br>          集群高可用 : 哨兵集群,槽slot相关<br><br>          三大场景(穿透击穿雪崩) : 见资料 八股<br><br>          删除策略 : 主动 被动 还有 LRU 惰性删除<br><br>          持久化: AOF RDB  不解释</p>
+<h5 id="4-mysql"><a href="#4-mysql" class="headerlink" title="4. mysql :"></a>4. mysql :</h5><p>引擎区别 、锁、事务及问题及解决方式、索引、分库分表、mysql架构、优化慢sql<br></p>
+<p>引擎区别 : 无非 INNODB  MYISAM 事务 count保存 唯一索引 其他八股 <br></p>
+<p>锁: 表锁行锁 独享排他 乐观悲观 间隙锁<br></p>
+<p>事务及问题及解决方式 :  四大事务, 脏度 重复读 幻读 默认重复读 通过 model view + undo log 以及mvcc 间隙锁  这几个都整明白。<br></p>
+<p>索引: b+树 hash   b+树 b树区别  数据类型 怎么选, 怎么建立索引 优化索引  由左往右的排序 ,最左原则 联合索引 二级索引  聚簇索引  唯一索引 回表这些概念都整明白 <br></p>
+<p>分库分表: 你知道怎么分吗? 了解下mycat 分库分表的场景和带来的问题<br></p>
+<p>mysql架构 : 比如 为什么这么快 知道 cost 怎么算的吗 有玩过吗?  各种log (undolog  redo log  bin log) 底层的刷盘 内存写入等 结构了解下<br></p>
+<p>慢sql: 基本上是sql优化嘛, mysql自带慢sql配置检测, 然后开始说sql问题  怎么看sql 表关联, 子查询  驱动表, explain使用(具体字段都要知道 比如type有那些值 你关注那些指标)  排序file sort  内存排序  limit优化 等<br></p>
+<h5 id="5-消息队列-MQ-KAFKA"><a href="#5-消息队列-MQ-KAFKA" class="headerlink" title="5. 消息队列(MQ KAFKA)"></a>5. 消息队列(MQ KAFKA)</h5><p>MQ KAFKA区别 场景及问题解决 、架构及原理、消费积压、持久化 快<br><br><br>        笔者掌握较少  见八股</p>
+<h5 id="6-JVM"><a href="#6-JVM" class="headerlink" title="6. JVM"></a>6. JVM</h5><p> 常用参数 JVM内存结构及说明、  CMS执行过程、类加载及对象分配过程、对象相关、垃圾回收器、实战 OOM及FULLGC排查<br><br>        笔者简历有jvm实战  所以这块准备的多一些<br></p>
+<p>常用参数 : 说出常用的那些, 比如 用什么垃圾回收器啊(这里更多是parnew +cms)<br>        堆大小配置啊, eden s区 默认8:1:1 配置啊 , 大对象晋升配置  cms only  cms阈值 碎片化 压缩<br>        元空间配置(笔者比较了解这一块 会和面试官深挖这里)  gc日志打印  class加载卸载 等等 说个差不多就可以<br><br></p>
+<p> JVM内存结构及说明 : 栈 堆  程序计数器 本地方法区  常量池等等  记住每个区域干啥用的 会有啥问题, 比如 堆 分配对象 还有对象标量替换到栈上, 分配对象又包含对象头 示例数据 对其填充 和class的引用  还有 64位压缩32位技术, 还有 垃圾回收器回收  ; 栈的话 有栈溢出  线程私有 栈本身的数据结构等等;<br><br></p>
+<p> CMS执行过程 : 初始标记 并发标记 重新标记 并发清理 最终回收  并发的都不stw  不是并发的初始标记和 重新标记是stw 的 如果能说出每个过程具体干啥了更佳, 比如关于 卡表 跨代引用 三色标记法 写屏障 CAS 原理等<br>      <br><br><br> 类加载及对象分配过程 : 这里就是类加载过程 怎么加载的( 源码: findClass loadClass ) 怎么从磁盘拿走, 什么时候加载卸载 ; 对象分配过程(new关键字 先类加载 再去初始化对象 等等 八股)<br>        对象结构(对象头 markword  gc标识 偏向锁 等等),所占字节数(有压缩技术 32G 等概念在这里  )</p>
+<p> 垃圾回收器: 其他垃圾回收器 比如 串行俩兄弟, 并行俩兄弟  parnew  cms  g1 Shenandoah zgc 等  知道就行, 能说出来g1 和cms 区别 更佳<br><br></p>
+<p>  实战: full gc 怎么办  OOM 怎么办<br><br>        fullgc思路<br><br>        1 :了解该项目参数 : 比如什么垃圾回收器 什么堆大小配置 等等<br><br>        2 : 了解该项目流量模型: 比如一分钟多少对象进来 回收情况如何 观察对象区域图(公司有监控更佳, 没有就说 jgc jstack 等命令查看)<br><br>        3 : 定位fullgc原因, 比如 过早晋升, 碎片化  回收阈值设置有问题  还有内存泄漏<br><br>        一个一个问题</p>
+<p> OOM : 分析OOM区域 (元空间也可能OOM) 然后定位解决问题</p>
+<h5 id="7-网络"><a href="#7-网络" class="headerlink" title="7.网络 :"></a>7.网络 :</h5><p> 一次请求、TCPIP  设计RPC  、BIO NIO AIO</p>
+<p> 八股背起来</p>
+<h5 id="其他-缓存一致性-根据简历擅长角度及过往项目来问"><a href="#其他-缓存一致性-根据简历擅长角度及过往项目来问" class="headerlink" title="其他: 缓存一致性  根据简历擅长角度及过往项目来问"></a>其他: 缓存一致性  根据简历擅长角度及过往项目来问<br><br><br><br><br><br></h5><h3 id="3-面试实战"><a href="#3-面试实战" class="headerlink" title="3 : 面试实战"></a>3 : 面试实战<br><br><br></h3><p>时间问题 稍后补上</p>
+<h3 id="4-资料相关"><a href="#4-资料相关" class="headerlink" title="4 : 资料相关"></a>4 : 资料相关<br></h3><p>由于时间原因 资料请加我微信私聊<br>完全免费请放心</p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5 : 总结"></a>5 : 总结<br></h3><p>时间问题 稍后补上</p>
 
-   1.JAVA基础 :
-      集合、JUC和AQS 、 锁与线程、HASHMAP  线程池
-      
-      
-      集合 : 一般问常用数据结构,一些ArrayList LinkedList 等区别  比较基础 有的公司喜欢这么从基础问到深入, 所以集合相关就大概说下日常的即可。
-      
-      JUC : 并发相关的,比如问你常用 并发包什么类啊, AQS知道吗 ,讲讲原理和实现子类, 比如 CountDownLatch  CyclicBarrier Semaphore三兄弟  这个问的还挺多的 最好自己有了解相关原理 也有手动写过线程并发相关的经验。
-      
-      锁与线程 : 这个一般就是 LOCK synchronized 区别, 重入不可重入 锁等级 八股文背就完了
-      HashMap : 这个单拿出来是因为 面试必问, 都很喜欢问这个,包括数据类型 java8区别  解决什么问题 底层原理 , 我在去哪儿面试时 让我手写一个 hash方法 ( 也是醉了 )
-      线程池 :  常用参数 , 怎么初始化线程池, 了解原理吗 之类的
-      
-      
-   2.spring :
-      设计模式、IOC 、AOP、BEAN生命周期、 三级缓存循环依赖
-      
-      设计模式 :  单例  代理  装饰 模板 工厂 等等
-      IOC AOP : 老生八股
-      BEAN生命周期 :  八股背
-      三级缓存循环依赖 : 不看源码不太容易背,建议啃一啃
-      
-   3.redis :
-      数据类型、集群高可用、模型、三大场景(穿透击穿雪崩)、删除策略、持久化策略
-      数据类型 : 几大数据类型  常用哪些,给你一些场景你怎么用之类的
-      集群高可用 : 哨兵集群,槽slot相关
-      三大场景(穿透击穿雪崩) : 见资料 八股
-      删除策略 : 主动 被动 还有 LRU 惰性删除
-      持久化: AOF RDB  不解释
-      
-   4. mysql :
-    引擎区别 、锁、事务及问题及解决方式、索引、分库分表、mysql架构、优化慢sql
-    
-    引擎区别 : 无非 INNODB  MYISAM 事务 count保存 唯一索引 其他八股 
-    
-    锁: 表锁行锁 独享排他 乐观悲观 间隙锁
-    
-    事务及问题及解决方式 :  四大事务, 脏度 重复读 幻读 默认重复读 通过 model view + undo log 以及mvcc 间隙锁  这几个都整明白。
-    
-    索引: b+树 hash   b+树 b树区别  数据类型 怎么选, 怎么建立索引 优化索引  由左往右的排序 ,最左原则 联合索引 二级索引  聚簇索引  唯一索引 回表这些概念都整明白 
-    
-    分库分表: 你知道怎么分吗? 了解下mycat 分库分表的场景和带来的问题
-    
-    mysql架构 : 比如 为什么这么快 知道 cost 怎么算的吗 有玩过吗?  各种log (undolog  redo log  bin log) 底层的刷盘 内存写入等 结构了解下
-    
-    慢sql: 基本上是sql优化嘛, mysql自带慢sql配置检测, 然后开始说sql问题  怎么看sql 表关联, 子查询  驱动表, explain使用(具体字段都要知道 比如type有那些值 你关注那些指标)  排序file sort  内存排序  limit优化 等
-    
-    
-   5. 消息队列(MQ KAFKA)
-    MQ KAFKA区别 场景及问题解决 、架构及原理、消费积压、持久化 快
-    笔者掌握较少  见八股
-   6. JVM
-    常用参数 JVM内存结构及说明、  CMS执行过程、类加载及对象分配过程、对象相关、垃圾回收器、实战 OOM及FULLGC排查
-    笔者简历有jvm实战  所以这块准备的多一些
-    
-    常用参数 : 说出常用的那些, 比如 用什么垃圾回收器啊(这里更多是parnew +cms)
-    堆大小配置啊, eden s区 默认8:1:1 配置啊 , 大对象晋升配置  cms only  cms阈值 碎片化 压缩
-    元空间配置(笔者比较了解这一块 会和面试官深挖这里)  gc日志打印  class加载卸载 等等 说个差不多就可以
-    
-    JVM内存结构及说明 : 栈 堆  程序计数器 本地方法区  常量池等等  记住每个区域干啥用的 会有啥问题, 比如 堆 分配对象 还有对象标量替换到栈上, 分配对象又包含对象头 示例数据 对其填充 和class的引用  还有 64位压缩32位技术, 还有 垃圾回收器回收  ; 栈的话 有栈溢出  线程私有 栈本身的数据结构等等;
-    
-    CMS执行过程 : 初始标记 并发标记 重新标记 并发清理 最终回收  并发的都不stw  不是并发的初始标记和 重新标记是stw 的 如果能说出每个过程具体干啥了更佳, 比如关于 卡表 跨代引用 三色标记法 写屏障 CAS 原理等  
-    
-    类加载及对象分配过程 : 这里就是类加载过程 怎么加载的( 源码: findClass loadClass ) 怎么从磁盘拿走, 什么时候加载卸载 ; 对象分配过程(new关键字 先类加载 再去初始化对象 等等 八股)
-    对象结构(对象头 markword  gc标识 偏向锁 等等),所占字节数(有压缩技术 32G 等概念在这里  )
-    
-    垃圾回收器: 其他垃圾回收器 比如 串行俩兄弟, 并行俩兄弟  parnew  cms  g1 Shenandoah zgc 等  知道就行, 能说出来g1 和cms 区别 更佳
-    
-    实战: full gc 怎么办  OOM 怎么办
-    fullgc思路
-    1 :了解该项目参数 : 比如什么垃圾回收器 什么堆大小配置 等等
-    2 : 了解该项目流量模型: 比如一分钟多少对象进来 回收情况如何 观察对象区域图(公司有监控更佳, 没有就说 jgc jstack 等命令查看)
-    3 : 定位fullgc原因, 比如 过早晋升, 碎片化  回收阈值设置有问题  还有内存泄漏 
-    一个一个问题
-    
-    OOM : 分析OOM区域 (元空间也可能OOM) 然后定位解决问题
-    
-    7.网络 : 
-     一次请求、TCPIP  设计RPC  、BIO NIO AIO
-     
-     八股背起来
-     
-     其他: 缓存一致性  根据简历擅长角度及过往项目来问  
-     
-     
-   
-</code></pre>
-<h4 id="3-面试实战"><a href="#3-面试实战" class="headerlink" title="3 : 面试实战"></a>3 : 面试实战<br></h4><h4 id="4-资料相关"><a href="#4-资料相关" class="headerlink" title="4 : 资料相关"></a>4 : 资料相关<br></h4><p>由于时间原因 资料请加我微信私聊<br>完全免费请放心</p>
-<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5 : 总结"></a>5 : 总结<br></h4>
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.mhxxx.cn/2021/05/06/2021-java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" data-id="ckoczsnck0003z0uk688vbb5w"
+      <a data-url="http://www.mhxxx.cn/2021/05/06/2021-java%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" data-id="ckod0olgj00092cuk62n8bp11"
         class="article-share-link">分享</a>
       
     </footer>
@@ -314,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.mhxxx.cn/2020/01/27/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E4%B9%8B%E8%A1%8C/" data-id="ckoczsncp000az0ukc88bcxxa"
+      <a data-url="http://www.mhxxx.cn/2020/01/27/%E4%BA%91%E5%8D%97%E6%97%85%E6%B8%B8%E4%B9%8B%E8%A1%8C/" data-id="ckod0olgl000a2cuk59y6gtcu"
         class="article-share-link">分享</a>
       
     </footer>
@@ -398,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.mhxxx.cn/2020/01/27/2020%E7%9A%84%E8%BF%99%E5%9C%BA%E7%98%9F%E7%96%AB/" data-id="ckoczsnch0001z0ukg3wrevsj"
+      <a data-url="http://www.mhxxx.cn/2020/01/27/2020%E7%9A%84%E8%BF%99%E5%9C%BA%E7%98%9F%E7%96%AB/" data-id="ckod0olgh00082cukaluzd629"
         class="article-share-link">分享</a>
       
     </footer>
@@ -476,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.mhxxx.cn/2020/01/15/%E6%B2%AE%E4%B8%A7%E7%9A%84%E5%BF%83%E6%83%85/" data-id="ckoczsncr000cz0uk67s90jbg"
+      <a data-url="http://www.mhxxx.cn/2020/01/15/%E6%B2%AE%E4%B8%A7%E7%9A%84%E5%BF%83%E6%83%85/" data-id="ckod0olgn000c2cukaphb03eu"
         class="article-share-link">分享</a>
       
     </footer>
@@ -538,7 +470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.mhxxx.cn/2020/01/06/%E6%84%BF%E4%B8%96%E7%95%8C%E5%92%8C%E5%B9%B3/" data-id="ckoczsncq000bz0uk3hn507qh"
+      <a data-url="http://www.mhxxx.cn/2020/01/06/%E6%84%BF%E4%B8%96%E7%95%8C%E5%92%8C%E5%B9%B3/" data-id="ckod0olgm000b2cukaxc780xw"
         class="article-share-link">分享</a>
       
     </footer>
